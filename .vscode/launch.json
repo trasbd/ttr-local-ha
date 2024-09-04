@@ -8,11 +8,9 @@
             "name": "Python Debugger: Current File with Arguments",
             "type": "debugpy",
             "request": "launch",
-            "program": "src/system_sensors.py",
+            "program": "ttr-local-ha.py",
             "console": "integratedTerminal",
-            "args": [
-                "./src/setting.yaml"
-            ]
+            
         }
     ]
 }
