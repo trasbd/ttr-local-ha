@@ -4,3 +4,4 @@ pytz
 PyYAML
 rpi_bad_power==0.1.0
 importlib_metadata
+requests

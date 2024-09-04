@@ -61,7 +61,7 @@ def update_sensors():
     payload_str = payload_str[:-1]
     payload_str += f'}}'
     mqttClient.publish(
-        topic=f'system-sensors/{attr["sensor_type"]}/{devicename}/state',
+        topic=f'{attr["sensor_type"]}/{devicename}/state',
         payload=payload_str,
         qos=1,
         retain=False,
@@ -89,7 +89,7 @@ def send_config_message(mqttClient):
                                 + f'"unique_id":"{devicename}_{attr["sensor_type"]}_{sensor}",'
                                 + f'"availability_topic":"system-sensors/sensor/{devicename}/availability",'
                                 + f'"device":{{"identifiers":["{devicename}_sensor"],'
-                                + f'"name":"{deviceNameDisplay} Sensors","model":"{deviceModel}", "manufacturer":"{deviceManufacturer}"}}'
+                                #+ f'"name":"{deviceNameDisplay} Sensors","model":"{deviceModel}", "manufacturer":"{deviceManufacturer}"}}'
                                 + (f',"icon":"mdi:{attr["icon"]}"' if 'icon' in attr else '')
                                 + (f',{attr["prop"].to_string(devicename)}' if 'prop' in attr else '')
                                 + f'}}'
@@ -121,10 +121,10 @@ def set_defaults(settings):
     for sensor in sensors:
         if sensor not in settings['sensors']:
             settings['sensors'][sensor] = True
-    if 'external_drives' not in settings['sensors'] or settings['sensors']['external_drives'] is None:
-        settings['sensors']['external_drives'] = {}
-    if "rasp" not in OS_DATA["ID"]:
-        settings['sensors']['display'] = False
+    #if 'external_drives' not in settings['sensors'] or settings['sensors']['external_drives'] is None:
+    #    settings['sensors']['external_drives'] = {}
+    #if "rasp" not in OS_DATA["ID"]:
+    #    settings['sensors']['display'] = False
 
     # 'settings' argument is local, so needs to be returned to overwrite the one in the main function
     return settings
@@ -141,14 +141,14 @@ def check_settings(settings):
     if 'user' in settings['mqtt'] and 'password' not in settings['mqtt']:
         write_message_to_console('password not defined in settings.yaml! Please check the documentation')
         sys.exit()
-    if 'power_status' in settings['sensors'] and rpi_power_disabled:
-        write_message_to_console('Unable to import rpi_bad_power library, or is incompatible on host architecture. Power supply info will not be shown.')
-        settings['sensors']['power_status'] = False
-    if 'updates' in settings['sensors'] and apt_disabled:
-        write_message_to_console('Unable to import apt package. Available updates will not be shown.')
-        settings['sensors']['updates'] = False
-    if 'power_integer_state' in settings:
-        write_message_to_console('power_integer_state is deprecated please remove this option power state is now a binary_sensor!')
+    # if 'power_status' in settings['sensors'] and rpi_power_disabled:
+    #     write_message_to_console('Unable to import rpi_bad_power library, or is incompatible on host architecture. Power supply info will not be shown.')
+    #     settings['sensors']['power_status'] = False
+    # if 'updates' in settings['sensors'] and apt_disabled:
+    #     write_message_to_console('Unable to import apt package. Available updates will not be shown.')
+    #     settings['sensors']['updates'] = False
+    # if 'power_integer_state' in settings:
+    #     write_message_to_console('power_integer_state is deprecated please remove this option power state is now a binary_sensor!')
     # these two may be present or not, but in case they are not, create a default
     if 'ha_status' not in settings or settings['ha_status'] == '':
         settings['ha_status'] = 'hass'
@@ -156,55 +156,56 @@ def check_settings(settings):
         settings['tls'] = {}
         settings['tls']['ca_certs'] = ''
 
-def check_zfs(mount_point):
-    for disk in psutil.disk_partitions():
-        if disk.mountpoint == mount_point and disk.fstype == 'zfs':
-            return True
+# def check_zfs(mount_point):
+#     for disk in psutil.disk_partitions():
+#         if disk.mountpoint == mount_point and disk.fstype == 'zfs':
+#             return True
 
-def add_drives():
-    drives = settings['sensors']['external_drives']
-    if drives is not None:
-        for drive in drives:
-            drive_path = settings['sensors']['external_drives'][drive]
-            if check_zfs(drive_path):
-                usage = get_zpool_use(drive)
-                zfs = True
-            else:
-                usage = get_disk_usage(drive_path)
-                zfs = False
-            if usage and zfs:
-                sensors[f'zpool_use_{drive.lower()}'] = zpool_base(drive)
-                # Add drive to list with formatted name, for when checking sensors against settings items
-                external_drives.append(f'zpool_use_{drive.lower()}')
-            elif usage:
-                sensors[f'disk_use_{drive.lower()}'] = external_drive_base(drive, drives[drive])
-                # Add drive to list with formatted name, for when checking sensors against settings items
-                external_drives.append(f'disk_use_{drive.lower()}')
-            else:
-                # Skip drives not found. Could be worth sending "not mounted" as the value if users want to track mount status.
-                print(drive + ' is not mounted to host. Check config or host drive mount settings.')
+# def add_drives():
+#     drives = settings['sensors']['external_drives']
+#     if drives is not None:
+#         for drive in drives:
+#             drive_path = settings['sensors']['external_drives'][drive]
+#             if check_zfs(drive_path):
+#                 usage = get_zpool_use(drive)
+#                 zfs = True
+#             else:
+#                 usage = get_disk_usage(drive_path)
+#                 zfs = False
+#             if usage and zfs:
+#                 sensors[f'zpool_use_{drive.lower()}'] = zpool_base(drive)
+#                 # Add drive to list with formatted name, for when checking sensors against settings items
+#                 external_drives.append(f'zpool_use_{drive.lower()}')
+#             elif usage:
+#                 sensors[f'disk_use_{drive.lower()}'] = external_drive_base(drive, drives[drive])
+#                 # Add drive to list with formatted name, for when checking sensors against settings items
+#                 external_drives.append(f'disk_use_{drive.lower()}')
+#             else:
+#                 # Skip drives not found. Could be worth sending "not mounted" as the value if users want to track mount status.
+#                 print(drive + ' is not mounted to host. Check config or host drive mount settings.')
 
 # host model method depending on system distro
 def get_host_model():
-    if "rasp" in OS_DATA["ID"] and isDockerized and isDeviceTreeModel:
-        model = subprocess.check_output(["cat", "/app/host/proc/device-tree/model"]).decode("UTF-8").strip()
-        # remove a weird character breaking the json in mqtt explorer
-        model = model[:-1]
-    else:
-        # todo find a solid way to determine sbc manufacture
-        model = f'{deviceManufacturer} {deviceNameDisplay}'
-    return model
+    # if "rasp" in OS_DATA["ID"] and isDockerized and isDeviceTreeModel:
+    #     model = subprocess.check_output(["cat", "/app/host/proc/device-tree/model"]).decode("UTF-8").strip()
+    #     # remove a weird character breaking the json in mqtt explorer
+    #     model = model[:-1]
+    # else:
+    #     # todo find a solid way to determine sbc manufacture
+    #     model = f'{deviceManufacturer} {deviceNameDisplay}'
+    # return model
+    return ""
 
 def on_connect(client, userdata, flags, reason_code, properties):
     if reason_code == 0:
         write_message_to_console('Connected to broker')
-        print("subscribing : " + f"{ha_status}/status")
-        client.subscribe(f"{ha_status}/status")
-        print("subscribing : " + f"system-sensors/sensor/{devicename}/availability")
-        mqttClient.publish(f'system-sensors/sensor/{devicename}/availability', 'online', retain=True)
-        print("subscribing : " + f"system-sensors/sensor/{devicename}/command")
-        client.subscribe(f"system-sensors/sensor/{devicename}/command")#subscribe
-        client.publish(f"system-sensors/sensor/{devicename}/command", "setup", retain=True)
+        # print("subscribing : " + f"{ha_status}/status")
+        # client.subscribe(f"{ha_status}/status")
+        # print("subscribing : " + f"system-sensors/sensor/{devicename}/availability")
+        # mqttClient.publish(f'system-sensors/sensor/{devicename}/availability', 'online', retain=True)
+        # print("subscribing : " + f"system-sensors/sensor/{devicename}/command")
+        # client.subscribe(f"system-sensors/sensor/{devicename}/command")#subscribe
+        # client.publish(f"system-sensors/sensor/{devicename}/command", "setup", retain=True)
     elif reason_code == 'Bad user name or password':
         write_message_to_console('Authentication failed.\n Exiting.')
         sys.exit()
@@ -213,14 +214,10 @@ def on_connect(client, userdata, flags, reason_code, properties):
 
 def on_message(client, userdata, message):
     print (f'Message received: {message.payload.decode()}'  )
-    if message.payload.decode() == 'online':
-        send_config_message(client)
-    elif message.payload.decode() == "display_on":
-        reading = subprocess.check_output([vcgencmd, "display_power", "1"]).decode("UTF-8")
-        update_sensors()
-    elif message.payload.decode() == "display_off":
-        reading = subprocess.check_output([vcgencmd, "display_power", "0"]).decode("UTF-8")
-        update_sensors()
+    # if message.payload.decode() == 'setup':
+    #     send_config_message(client)
+    # else:
+    update_sensors()
 
 
 if __name__ == '__main__':
@@ -247,12 +244,12 @@ if __name__ == '__main__':
     # Check for settings that will prevent the script from communicating with MQTT broker or break the script
     check_settings(settings)
 
-    add_drives()
+    #add_drives()
 
     devicename = settings['devicename'].replace(' ', '').lower()
     deviceNameDisplay = settings['devicename']
-    deviceManufacturer = "RPI Foundation" if "rasp" in OS_DATA["ID"] else OS_DATA['NAME']
-    deviceModel = get_host_model()
+    #deviceManufacturer = "RPI Foundation" if "rasp" in OS_DATA["ID"] else OS_DATA['NAME']
+    #deviceModel = get_host_model()
     ha_status = settings['ha_status']
     
 
@@ -276,10 +273,10 @@ if __name__ == '__main__':
         )
 
     # if ca_certs is populated, we expect the others have been populated accordingly
-    if settings['tls']['ca_certs'] != '':
-      mqttClient.tls_set(
-        ca_certs=settings['tls']['ca_certs'], certfile=settings['tls']['certfile'], keyfile=settings['tls']['keyfile']
-      )
+    # if settings['tls']['ca_certs'] != '':
+    #   mqttClient.tls_set(
+    #     ca_certs=settings['tls']['ca_certs'], certfile=settings['tls']['certfile'], keyfile=settings['tls']['keyfile']
+    #   )
 
     signal.signal(signal.SIGTERM, signal_handler)
     signal.signal(signal.SIGINT, signal_handler)
@@ -292,22 +289,22 @@ if __name__ == '__main__':
             # sleep for 2 minutes if broker is unavailable and retry.
             # Make this value configurable?
             # this feels like a dirty hack. Is there some other way to do this?
-            time.sleep(120)
+            time.sleep(60)
         except OSError:
             # sleep for 10 minutes if broker is not reachable, i.e. network is down
             # Make this value configurable?
             # this feels like a dirty hack. Is there some other way to do this?
-            time.sleep(600)
+            time.sleep(120)
     try:
         send_config_message(mqttClient)
     except Exception as e:
         write_message_to_console('Error while attempting to send config to MQTT host: ' + str(e))
         exit()
-    try:
-        update_sensors()
-    except Exception as e:
-        write_message_to_console('Error while attempting to perform inital sensor update: ' + str(e))
-        exit()
+    #try:
+    update_sensors()
+    #except Exception as e:
+    #    write_message_to_console('Error while attempting to perform inital sensor update: ' + str(e))
+    #    exit()
 
     job = Job(interval=dt.timedelta(seconds=poll_interval), execute=update_sensors)
     job.start()

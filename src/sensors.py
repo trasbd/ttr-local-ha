@@ -4,8 +4,7 @@ import re
 import time
 import pytz
 import psutil
-import socket
-import platform
+
 import subprocess
 import datetime as dt
 import sys
@@ -13,7 +12,6 @@ import os
 import shutil
 import json
 
-import requests.auth
 import requests.auth
 # import os.path
 
@@ -28,40 +26,40 @@ class PropertyBag(dict):
 # from os import walk
 
 
-rpi_power_disabled = True
-try:
-    from rpi_bad_power import new_under_voltage
-    if new_under_voltage() is not None:
-        # Only enable if import works and function returns a value
-        rpi_power_disabled = False
-except ImportError:
-    pass
+# rpi_power_disabled = True
+# try:
+#     from rpi_bad_power import new_under_voltage
+#     if new_under_voltage() is not None:
+#         # Only enable if import works and function returns a value
+#         rpi_power_disabled = False
+# except ImportError:
+#     pass
 
-try:
-    import apt
-    apt_disabled = False
-except ImportError:
-    apt_disabled = True
+# try:
+#     import apt
+#     apt_disabled = False
+# except ImportError:
+#     apt_disabled = True
 
-isDockerized = bool(os.getenv('YES_YOU_ARE_IN_A_CONTAINER', False))
-isOsRelease = os.path.isfile('/app/host/os-release')
-isHostname = os.path.isfile('/app/host/hostname')
-isDeviceTreeModel = os.path.isfile('/app/host/proc/device-tree/model')
-isSystemSensorPipe = os.path.isfile('/app/host/system_sensor_pipe')
+# isDockerized = bool(os.getenv('YES_YOU_ARE_IN_A_CONTAINER', False))
+# isOsRelease = os.path.isfile('/app/host/os-release')
+# isHostname = os.path.isfile('/app/host/hostname')
+# isDeviceTreeModel = os.path.isfile('/app/host/proc/device-tree/model')
+# isSystemSensorPipe = os.path.isfile('/app/host/system_sensor_pipe')
 
-vcgencmd = "vcgencmd"
-os_release = "/etc/os-release"
-if isDockerized:
-    os_release = "/app/host/os-release" if isOsRelease else '/etc/os-release'
-    vcgencmd = "/opt/vc/bin/vcgencmd"
+# vcgencmd = "vcgencmd"
+# os_release = "/etc/os-release"
+# if isDockerized:
+#     os_release = "/app/host/os-release" if isOsRelease else '/etc/os-release'
+#     vcgencmd = "/opt/vc/bin/vcgencmd"
 
 # Get OS information
-OS_DATA = {}
-with open(os_release) as f:
-    for line in f.readlines():
-        if not line in ['\n', '\r\n']:
-            row = line.strip().split("=")
-            OS_DATA[row[0]] = row[1].strip('"')
+#OS_DATA = {}
+#with open(os_release) as f:
+#    for line in f.readlines():
+#        if not line in ['\n', '\r\n']:
+#            row = line.strip().split("=")
+#            OS_DATA[row[0]] = row[1].strip('"')
 
 old_net_data_tx = psutil.net_io_counters()[0]
 previous_time_tx = time.time() - 10
@@ -70,8 +68,8 @@ previous_time_rx = time.time() - 10
 UTC = pytz.utc
 DEFAULT_TIME_ZONE = None
 
-if not rpi_power_disabled:
-    _underVoltage = new_under_voltage()
+# if not rpi_power_disabled:
+#     _underVoltage = new_under_voltage()
 
 
 def set_default_timezone(timezone):
@@ -108,11 +106,11 @@ def get_last_message():
     return str(as_local(utc_from_timestamp(time.time())).isoformat())
 
 
-def get_updates():
-    cache = apt.Cache()
-    cache.open(None)
-    cache.upgrade()
-    return str(cache.get_changes().__len__())
+# def get_updates():
+#     cache = apt.Cache()
+#     cache.open(None)
+#     cache.upgrade()
+#     return str(cache.get_changes().__len__())
 
 # Temperature method depending on system distro
 
@@ -167,15 +165,15 @@ def get_fan_speed():
 
 
 # display power method depending on system distro
-def get_display_status():
-    if "rasp" in OS_DATA["ID"]:
-        reading = subprocess.check_output(
-            [vcgencmd, "display_power"]).decode("UTF-8")
-        display_state = str(re.findall(
-            "^display_power=(?P<display_state>[01]{1})$", reading)[0])
-    else:
-        display_state = "Unknown"
-    return display_state
+# def get_display_status():
+#     if "rasp" in OS_DATA["ID"]:
+#         reading = subprocess.check_output(
+#             [vcgencmd, "display_power"]).decode("UTF-8")
+#         display_state = str(re.findall(
+#             "^display_power=(?P<display_state>[01]{1})$", reading)[0])
+#     else:
+#         display_state = "Unknown"
+#     return display_state
 
 # Replaced with psutil method - does this not work fine?
 
@@ -300,49 +298,49 @@ def get_wifi_ssid():
     return (ssid)
 
 
-def get_rpi_power_status():
-    return 'ON' if _underVoltage.get() else 'OFF'
+# def get_rpi_power_status():
+#     return 'ON' if _underVoltage.get() else 'OFF'
 
 
-def get_hostname():
-    if isDockerized and isHostname:
-        host = subprocess.check_output(
-            ["cat", "/app/host/hostname"]).decode("UTF-8").strip()
-    else:
-        host = socket.gethostname()
-    return host
+# def get_hostname():
+#     if isDockerized and isHostname:
+#         host = subprocess.check_output(
+#             ["cat", "/app/host/hostname"]).decode("UTF-8").strip()
+#     else:
+#         host = socket.gethostname()
+#     return host
 
 
-def get_host_ip():
-    if isDockerized and isSystemSensorPipe:
-        return get_container_host_ip()
-    else:
-        try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            sock.connect(('8.8.8.8', 80))
-            return sock.getsockname()[0]
-        except socket.error:
-            try:
-                return socket.gethostbyname(socket.gethostname())
-            except socket.gaierror:
-                return '127.0.0.1'
-        finally:
-            sock.close()
+# def get_host_ip():
+#     if isDockerized and isSystemSensorPipe:
+#         return get_container_host_ip()
+#     else:
+#         try:
+#             sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#             sock.connect(('8.8.8.8', 80))
+#             return sock.getsockname()[0]
+#         except socket.error:
+#             try:
+#                 return socket.gethostbyname(socket.gethostname())
+#             except socket.gaierror:
+#                 return '127.0.0.1'
+#         finally:
+#             sock.close()
 
 
-def get_container_host_ip():
-    data = subprocess.check_output(
-        ["cat", "/app/host/system_sensor_pipe"]).decode("UTF-8")
-    ip = ""
-    for line in data.split('\n'):
-        mo = re.match (
-            "^.{2}(?P<id>.{2}).{2}(?P<addr>.{8})..{4} .{8}..{4} (?P<status>.{2}).*|", line)
-        if mo and mo.group("id") != "sl":
-            status = int(mo.group("status"), 16)
-            if status == 1:  # connection established
-                ip = hex2addr(mo.group("addr"))
-                break
-    return ip
+# def get_container_host_ip():
+#     data = subprocess.check_output(
+#         ["cat", "/app/host/system_sensor_pipe"]).decode("UTF-8")
+#     ip = ""
+#     for line in data.split('\n'):
+#         mo = re.match (
+#             "^.{2}(?P<id>.{2}).{2}(?P<addr>.{8})..{4} .{8}..{4} (?P<status>.{2}).*|", line)
+#         if mo and mo.group("id") != "sl":
+#             status = int(mo.group("status"), 16)
+#             if status == 1:  # connection established
+#                 ip = hex2addr(mo.group("addr"))
+#                 break
+#     return ip
 
 
 def hex2addr(hex_addr):
@@ -359,49 +357,54 @@ def hex2addr(hex_addr):
     return ip
 
 
-def get_host_os():
-    try:
-        return OS_DATA['PRETTY_NAME']
-    except:
-        return 'Unknown'
+# def get_host_os():
+#     try:
+#         return OS_DATA['PRETTY_NAME']
+#     except:
+#         return 'Unknown'
 
 
-def get_host_arch():
-    try:
-        return platform.machine()
-    except:
-        return 'Unknown'
+# def get_host_arch():
+#     try:
+#         return platform.machine()
+#     except:
+#         return 'Unknown'
     
 def get_laff():
+    api_url = "http://localhost:1547/info.json"
+
     import requests
-    api_url = "https://localhost:1547/info.json"
-    response = requests.get(api_url, auth=('homeassistant'))
-    return response.json()
+
+    headers = {"Authorization": "Bearer MYREALLYLONGTOKENIGOT",
+               'User-Agent': 'My User Agent 1.0',}
+
+    myRes = requests.get(api_url, headers=headers)
+    return myRes.json()['laff']['current']
 
 
 # Builds an external drive entry to fix incorrect usage reporting
 
 
-def external_drive_base(drive, drive_path) -> dict:
-    return {
-        'name': f'Disk Use {drive}',
-        'unit': '%',
-        'icon': 'harddisk',
-        'sensor_type': 'sensor',
-        'function': lambda: get_disk_usage(f'{drive_path}')
-    }
+# def external_drive_base(drive, drive_path) -> dict:
+#     return {
+#         'name': f'Disk Use {drive}',
+#         'unit': '%',
+#         'icon': 'harddisk',
+#         'sensor_type': 'sensor',
+#         'function': lambda: get_disk_usage(f'{drive_path}')
+#     }
 
-# Builds a zpool entry to fix incorrect usage reporting
+# # Builds a zpool entry to fix incorrect usage reporting
 
 
-def zpool_base(pool) -> dict:
-    return {
-        'name': f'Zpool Use {pool}',
-        'unit': '%',
-        'icon': 'harddisk',
-        'sensor_type': 'sensor',
-        'function': lambda: get_zpool_use(f'{pool}')
-    }
+# def zpool_base(pool) -> dict:
+#     return {
+#         'name': f'Zpool Use {pool}',
+#         'unit': '%',
+#         'icon': 'harddisk',
+#         'sensor_type': 'sensor',
+#         'function': lambda: get_zpool_use(f'{pool}')
+#     }
 
 
 sensors = {

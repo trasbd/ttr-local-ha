@@ -119,3 +119,4 @@ src/settings.yaml
 
 # ignore config directory created by docker
 /config
+src/setting.yaml
