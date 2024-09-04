@@ -42,11 +42,13 @@ if __name__ == '__main__':
     def on_connect( client, userdata, flags, rc, prop=None):
         print("Connected with result code " + str(rc))
         
-
+    def on_disconnect( client, userdata, flags, rc, prop=None):
+        print("Disconnect with result code " + str(rc))
     # Create a client instance
     print("Starting")
-    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2,"ttr-local-ha")
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2,"ttr-local-ha2")
     client.on_connect = on_connect
+    client.on_disconnect = on_disconnect
     
     client.username_pw_set(mySecrets.username, mySecrets.password)
     # Connect to the broker
