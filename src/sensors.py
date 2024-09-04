@@ -12,6 +12,9 @@ import sys
 import os
 import shutil
 import json
+
+import requests.auth
+import requests.auth
 # import os.path
 
 
@@ -372,7 +375,7 @@ def get_host_arch():
 def get_laff():
     import requests
     api_url = "https://localhost:1547/info.json"
-    response = requests.get(api_url)
+    response = requests.get(api_url, auth=('homeassistant'))
     return response.json()
 
 
