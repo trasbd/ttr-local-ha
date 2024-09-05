@@ -5,7 +5,7 @@ import mySecrets
 
 def get_ttr_info():
     myRes = None
-    api_url = "http://192.168.86.50:1547/info.json"
+    api_url = "http://localhost:1547/info.json"
     headers = {"Authorization": "Bearer MYREALLYLONGTOKENIGOT",
                'User-Agent': 'My User Agent 1.0',}
     try:
@@ -27,7 +27,7 @@ def my_loop():
             print(ttr_info.status_code)
     else:
         print("TTR not running")
-    time.sleep(15)
+    time.sleep(5)
      
 
 if __name__ == '__main__':
