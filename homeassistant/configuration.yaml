@@ -63,9 +63,31 @@ mqtt:
           - "ttr_sk"
     - name: "Instance ID"
       state_topic: "sensor/SheriffKatie"
-      device_class: "enum"
       unique_id: ttr_sk_id
       value_template: "{{ value_json.location.instanceId }}"
+      device:
+        name: "Sheriff Katie"
+        identifiers:
+          - "ttr_sk"
+    - name: "Invasion"
+      state_topic: "sensor/SheriffKatie"
+      unique_id: ttr sk_invasion
+      value_template: >
+        {% if value_json.invasion -%}
+          {{value_json.invasion.cog}}
+        {%- else -%}
+          {{value_json.invasion}}
+        {%- endif %}
+      json_attributes_topic: "sensor/SheriffKatie"
+      json_attributes_template: >
+        {% if value_json.invasion -%}
+          {
+            "Quantity": "{{value_json.invasion.quantity}}",
+            "Mega": "{{value_json.invasion.mega}}"
+          }
+        {%- else -%}
+          {{value_json.invasion}}
+        {%- endif %}
       device:
         name: "Sheriff Katie"
         identifiers:

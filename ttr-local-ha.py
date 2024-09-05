@@ -11,7 +11,7 @@ def get_ttr_info():
     api_url = "http://localhost:1547/info.json"
     headers = {
         "Authorization": "Bearer MYREALLYLONGTOKENIGOT",
-        "User-Agent": "My User Agent 1.0",
+        "User-Agent": "ttr-local-ha",
     }
     try:
         myRes = requests.get(api_url, headers=headers)
@@ -28,9 +28,9 @@ def my_loop():
             client.publish(
                 "sensor/" + ttr_json["toon"]["name"].replace(" ", ""), ttr_info.content
             )
-            print(ttr_json["toon"]["name"])
+            print(ttr_json["toon"]["name"] + " " + str(ttr_json["laff"]["current"])+ " / " + str(ttr_json["laff"]["max"]))
         else:
-            print(ttr_info.status_code)
+            print("Connected to TTR with result code " + ttr_info.status_code)
     else:
         print("TTR not running")
     time.sleep(5)
@@ -43,10 +43,10 @@ if __name__ == "__main__":
 
     # Callback function for when the client connects to the broker
     def on_connect(client, userdata, flags, rc, prop=None):
-        print("Connected with result code " + str(rc))
+        print("Connected to HA with result code " + str(rc))
 
     def on_disconnect(client, userdata, flags, rc, prop=None):
-        print("Disconnect with result code " + str(rc))
+        print("Disconnect from HA with result code " + str(rc))
 
     # Create a client instance
     print("Starting")
