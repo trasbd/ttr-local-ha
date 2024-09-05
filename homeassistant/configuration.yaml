@@ -1,0 +1,72 @@
+mqtt:
+  sensor:
+    - name: "Laff"
+      state_topic: "sensor/SheriffKatie"
+      state_class: "measurement"
+      unique_id: ttr_sk_laff
+      value_template: "{{ value_json.laff.current }}"
+      device:
+        name: "Sherif Katie"
+        identifiers:
+          - "ttr_sk"
+    - name: "Zone"
+      state_topic: "sensor/SheriffKatie"
+      device_class: "enum"
+      unique_id: ttr_sk_zone
+      value_template: "{{ value_json.location.zone }}"
+      device:
+        name: "Sherif Katie"
+        identifiers:
+          - "ttr_sk"
+    - name: "Max Laff"
+      state_topic: "sensor/SheriffKatie"
+      state_class: "measurement"
+      unique_id: ttr_sk_maxlaff
+      value_template: "{{ value_json.laff.max }}"
+      device:
+        name: "Sherif Katie"
+        identifiers:
+          - "ttr_sk"
+    - name: "Head Color"
+      state_topic: "sensor/SheriffKatie"
+      unique_id: ttr_sk_color
+      value_template: "{{ value_json.toon.headColor }}"
+      device:
+        name: "Sherif Katie"
+        identifiers:
+          - "ttr_sk"
+    - name: "Style"
+      state_topic: "sensor/SheriffKatie"
+      unique_id: ttr_sk_style
+      value_template: "{{ value_json.toon.style }}"
+      device:
+        name: "Sherif Katie"
+        identifiers:
+          - "ttr_sk"
+    - name: "Neighborhood"
+      state_topic: "sensor/SheriffKatie"
+      device_class: "enum"
+      unique_id: ttr_sk_neighborhood
+      value_template: "{{ value_json.location.neighborhood }}"
+      device:
+        name: "Sherif Katie"
+        identifiers:
+          - "ttr_sk"
+    - name: "District"
+      state_topic: "sensor/SheriffKatie"
+      device_class: "enum"
+      unique_id: ttr_sk_district
+      value_template: "{{ value_json.location.district }}"
+      device:
+        name: "Sherif Katie"
+        identifiers:
+          - "ttr_sk"
+    - name: "Instance ID"
+      state_topic: "sensor/SheriffKatie"
+      device_class: "enum"
+      unique_id: ttr_sk_id
+      value_template: "{{ value_json.location.instanceId }}"
+      device:
+        name: "Sheriff Katie"
+        identifiers:
+          - "ttr_sk"

@@ -1,0 +1,59 @@
+# https://github.com/thomasloven/lovelace-card-mod
+# https://github.com/gadgetchnnel/lovelace-card-templater
+
+views:
+  - title: Toons
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.sherif_katie_district
+            name: District
+          - entity: sensor.sherif_katie_head_color
+            name: Head Color
+            card_mod:
+              style: |
+                :host {
+                  --card-mod-icon-color: {{states('sensor.sherif_katie_head_color')}}
+                }
+          - entity: sensor.sherif_katie_instance_id
+            name: Instance ID
+          - entity: sensor.sherif_katie_laff
+            name: Laff
+          - entity: sensor.sherif_katie_max_laff
+            name: Max Laff
+          - entity: sensor.sherif_katie_neighborhood
+            name: Neighborhood
+          - entity: sensor.sherif_katie_zone
+            name: Zone
+        title: Sheriff Katie
+      - type: vertical-stack
+        cards:
+          - type: custom:card-templater
+            card:
+              type: gauge
+              show_header_toggle: false
+              entity: sensor.sherif_katie_laff
+              min: 0
+              max_template: '{{states(''sensor.sherif_katie_max_laff'')}}'
+              needle: true
+              severity:
+                green_template: '{{states(''sensor.sherif_katie_max_laff'')|int *2/3}}'
+                yellow_template: '{{states(''sensor.sherif_katie_max_laff'')|int *1/3}}'
+                red: 0
+            entities:
+              - entity: sensor.sherif_katie_max_laff
+              - entity: sensor.sherif_katie_laff
+          - graph: line
+            type: sensor
+            entity: sensor.sherif_katie_laff
+            detail: 2
+            hours_to_show: 1
+            icon: ''
+      - type: custom:card-templater
+        card:
+          type: picture
+          image_template: >-
+            https://rendition.toontownrewritten.com/render/{{states('sensor.sherif_katie_style')}}/{{states('sensor.sheriff_katie_portrait')}}/512x512.webp
+        entities:
+          - entity: sensor.sherif_katie_style
+          - entity: sensor.sheriff_katie_portrait

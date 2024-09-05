@@ -1,0 +1,9 @@
+{% if states('sensor.sherif_katie_laff')|float ==(states('sensor.sherif_katie_max_laff')|float)%}
+  portrait-delighted
+  {% elif states('sensor.sherif_katie_laff')|float > (states('sensor.sherif_katie_max_laff')|int *2/3) %}
+  portrait
+{% elif states('sensor.sherif_katie_laff')|float > (states('sensor.sherif_katie_max_laff')|int *1/3) %}
+  portrait-surprise
+  {%else%}
+  portrait-sleep
+{% endif %}
