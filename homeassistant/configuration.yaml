@@ -1,84 +1,93 @@
 mqtt:
   sensor:
     - name: "Laff"
-      state_topic: "sensor/SheriffKatie"
+      state_topic: "sensor/Gracie"
       state_class: "measurement"
-      unique_id: ttr_sk_laff
+      unique_id: ttr_gracie_laff
+      icon: mdi:emoticon-outline
       value_template: "{{ value_json.laff.current }}"
       device:
-        name: "Sherif Katie"
+        name: "Gracie"
         identifiers:
-          - "ttr_sk"
+          - "ttr_gracie"
     - name: "Zone"
-      state_topic: "sensor/SheriffKatie"
+      state_topic: "sensor/Gracie"
       device_class: "enum"
-      unique_id: ttr_sk_zone
+      unique_id: ttr_gracie_zone
+      icon: mdi:map-marker-account
       value_template: "{{ value_json.location.zone }}"
       device:
-        name: "Sherif Katie"
+        name: "Gracie"
         identifiers:
-          - "ttr_sk"
+          - "ttr_gracie"
     - name: "Max Laff"
-      state_topic: "sensor/SheriffKatie"
+      state_topic: "sensor/Gracie"
       state_class: "measurement"
-      unique_id: ttr_sk_maxlaff
+      unique_id: ttr_gracie_maxlaff
+      icon: mdi:emoticon
       value_template: "{{ value_json.laff.max }}"
       device:
-        name: "Sherif Katie"
+        name: "Gracie"
         identifiers:
-          - "ttr_sk"
+          - "ttr_gracie"
     - name: "Head Color"
-      state_topic: "sensor/SheriffKatie"
-      unique_id: ttr_sk_color
+      state_topic: "sensor/Gracie"
+      unique_id: ttr_gracie_color
+      icon: mdi:head
       value_template: "{{ value_json.toon.headColor }}"
       device:
-        name: "Sherif Katie"
+        name: "Gracie"
         identifiers:
-          - "ttr_sk"
+          - "ttr_gracie"
     - name: "Style"
-      state_topic: "sensor/SheriffKatie"
-      unique_id: ttr_sk_style
+      state_topic: "sensor/Gracie"
+      unique_id: ttr_gracie_style
+      icon: mdi:tshirt-crew
       value_template: "{{ value_json.toon.style }}"
       device:
-        name: "Sherif Katie"
+        name: "Gracie"
         identifiers:
-          - "ttr_sk"
+          - "ttr_gracie"
     - name: "Neighborhood"
-      state_topic: "sensor/SheriffKatie"
+      state_topic: "sensor/Gracie"
       device_class: "enum"
-      unique_id: ttr_sk_neighborhood
+      unique_id: ttr_gracie_neighborhood
+      icon: mdi:map-marker-radius
       value_template: "{{ value_json.location.neighborhood }}"
       device:
-        name: "Sherif Katie"
+        name: "Gracie"
         identifiers:
-          - "ttr_sk"
+          - "ttr_gracie"
     - name: "District"
-      state_topic: "sensor/SheriffKatie"
+      state_topic: "sensor/Gracie"
       device_class: "enum"
-      unique_id: ttr_sk_district
+      unique_id: ttr_gracie_district
       value_template: "{{ value_json.location.district }}"
+      icon: "mdi:earth"
       device:
-        name: "Sherif Katie"
+        name: "Gracie"
         identifiers:
-          - "ttr_sk"
+          - "ttr_gracie"
     - name: "Instance ID"
-      state_topic: "sensor/SheriffKatie"
-      unique_id: ttr_sk_id
+      state_topic: "sensor/Gracie"
+      unique_id: ttr_gracie_id
+      icon: mdi:account-group
       value_template: "{{ value_json.location.instanceId }}"
       device:
-        name: "Sheriff Katie"
+        name: "Gracie"
         identifiers:
-          - "ttr_sk"
+          - "ttr_gracie"
     - name: "Invasion"
-      state_topic: "sensor/SheriffKatie"
-      unique_id: ttr sk_invasion
+      state_topic: "sensor/Gracie"
+      unique_id: ttr gracie_invasion
+      icon: mdi:cog-outline
       value_template: >
         {% if value_json.invasion -%}
           {{value_json.invasion.cog}}
         {%- else -%}
           {{value_json.invasion}}
         {%- endif %}
-      json_attributes_topic: "sensor/SheriffKatie"
+      json_attributes_topic: "sensor/Gracie"
       json_attributes_template: >
         {% if value_json.invasion -%}
           {
@@ -89,6 +98,6 @@ mqtt:
           {{value_json.invasion}}
         {%- endif %}
       device:
-        name: "Sheriff Katie"
+        name: "Gracie"
         identifiers:
-          - "ttr_sk"
+          - "ttr_gracie"

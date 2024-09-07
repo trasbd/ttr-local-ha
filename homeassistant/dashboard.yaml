@@ -1,6 +1,5 @@
 # https://github.com/thomasloven/lovelace-card-mod
 # https://github.com/gadgetchnnel/lovelace-card-templater
-
 views:
   - title: Toons
     cards:
@@ -8,24 +7,24 @@ views:
         entities:
           - entity: sensor.sherif_katie_district
             name: District
-          - entity: sensor.sherif_katie_head_color
-            name: Head Color
-            card_mod:
-              style: |
-                :host {
-                  --card-mod-icon-color: {{states('sensor.sherif_katie_head_color')}}
-                }
-          - entity: sensor.sherif_katie_instance_id
-            name: Instance ID
-          - entity: sensor.sherif_katie_laff
-            name: Laff
-          - entity: sensor.sherif_katie_max_laff
-            name: Max Laff
+          - entity: sensor.sheriff_katie_invasion_2
+            name: Invasion
           - entity: sensor.sherif_katie_neighborhood
             name: Neighborhood
           - entity: sensor.sherif_katie_zone
             name: Zone
+          - entity: sensor.sherif_katie_instance_id
+            name: Instance ID
+          - entity: sensor.sherif_katie_head_color
+            name: Head Color
+          - entity: sensor.sherif_katie_max_laff
+            name: Max Laff
         title: Sheriff Katie
+        card_mod:
+          style: |
+            :host {
+              --card-mod-icon-color: {{states('sensor.sherif_katie_head_color')}}
+            }
       - type: vertical-stack
         cards:
           - type: custom:card-templater
