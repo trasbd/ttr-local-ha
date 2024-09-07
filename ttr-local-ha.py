@@ -6,9 +6,9 @@ import requests
 import mySecrets
 
 
-def get_ttr_info():
+def get_ttr_info(port=1547):
     myRes = None
-    api_url = "http://localhost:1547/info.json"
+    api_url = "http://localhost:"+str(port)+ "/info.json"
     headers = {
         "Authorization": "Bearer MYREALLYLONGTOKENIGOT",
         "User-Agent": "ttr-local-ha",
@@ -21,19 +21,21 @@ def get_ttr_info():
 
 
 def my_loop():
-    ttr_info = get_ttr_info()
-    if ttr_info != None:
-        if ttr_info.status_code == 200:
-            ttr_json = ttr_info.json()
-            client.publish(
-                "sensor/" + ttr_json["toon"]["name"].replace(" ", ""), ttr_info.content
-            )
-            print(ttr_json["toon"]["name"] + " " + str(ttr_json["laff"]["current"])+ " / " + str(ttr_json["laff"]["max"]))
+
+    for portNum in range(1547,1548):
+        ttr_info = get_ttr_info(portNum)
+        if ttr_info != None:
+            if ttr_info.status_code == 200:
+                ttr_json = ttr_info.json()
+                client.publish(
+                    "sensor/" + ttr_json["toon"]["name"].replace(" ", ""), ttr_info.content
+                )
+                print(ttr_json["toon"]["name"] + " " + str(ttr_json["laff"]["current"])+ " / " + str(ttr_json["laff"]["max"]))
+            else:
+                print("Connected to TTR with result code " + str(ttr_info.status_code))
         else:
-            print("Connected to TTR with result code " + ttr_info.status_code)
-    else:
-        print("TTR not running")
-    time.sleep(5)
+            print("TTR not running")
+    
 
 
 if __name__ == "__main__":
@@ -50,7 +52,7 @@ if __name__ == "__main__":
 
     # Create a client instance
     print("Starting")
-    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "ttr-local-ha2")
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "ttr-local-ha")
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
 
@@ -64,6 +66,7 @@ if __name__ == "__main__":
 
     while True:
         my_loop()
+        time.sleep(5)
 
     client.loop_stop()
     client.disconnect()
