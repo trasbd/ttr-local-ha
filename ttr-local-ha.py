@@ -1,10 +1,22 @@
 import paho.mqtt.client as mqtt
 import time
 import requests
+import threading
+import random
+
+import myTimer
 
 # mySecrets.py contains MQTT username and password
 import mySecrets
 
+timerThread = None
+
+useTimer = False
+zoneTimer = "Scrap Factory"
+
+numberToons = 1
+
+interval = 5
 
 def get_ttr_info(port=1547):
     myRes = None
@@ -21,8 +33,8 @@ def get_ttr_info(port=1547):
 
 
 def my_loop():
-
-    for portNum in range(1547,1548):
+    global timerThread, useTimer
+    for portNum in range(1547,1547+numberToons):
         ttr_info = get_ttr_info(portNum)
         if ttr_info != None:
             if ttr_info.status_code == 200:
@@ -30,7 +42,16 @@ def my_loop():
                 client.publish(
                     "sensor/" + ttr_json["toon"]["name"].replace(" ", ""), ttr_info.content
                 )
-                print(ttr_json["toon"]["name"] + " " + str(ttr_json["laff"]["current"])+ " / " + str(ttr_json["laff"]["max"]))
+                if not useTimer:
+                    print(ttr_json["toon"]["name"] + " " + str(ttr_json["laff"]["current"])+ " / " + str(ttr_json["laff"]["max"]))
+                if useTimer and ttr_json["location"]["zone"] == zoneTimer:
+                    if timerThread == None:
+                        timerThread = threading.Thread(target=myTimer.startFullTime)
+                        timerThread.start()
+                elif useTimer and timerThread:
+                    myTimer.endFullTime()
+                    timerThread.join()
+                    timerThread=None
             else:
                 print("Connected to TTR with result code " + str(ttr_info.status_code))
         else:
@@ -40,7 +61,7 @@ def my_loop():
 
 if __name__ == "__main__":
     # MQTT broker details
-    broker_address = "homeassistant.local"
+    broker_address = mySecrets.haAddress
     broker_port = 1883  # Default MQTT port
 
     # Callback function for when the client connects to the broker
@@ -52,7 +73,7 @@ if __name__ == "__main__":
 
     # Create a client instance
     print("Starting")
-    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "ttr-local-ha")
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "ttr-local-ha" + str(random.randint(0,100)))
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
 
@@ -64,9 +85,18 @@ if __name__ == "__main__":
 
     client.loop_start()
 
+    if useTimer:
+        thread = threading.Thread(target = myTimer.myTimer)
+        thread.start()
+
+
     while True:
         my_loop()
-        time.sleep(5)
+        if not useTimer:
+            time.sleep(interval)
 
     client.loop_stop()
     client.disconnect()
+
+
+
