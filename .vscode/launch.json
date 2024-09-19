@@ -4,14 +4,12 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
         {
             "name": "ttr-local-ha",
             "type": "debugpy",
             "request": "launch",
             "program": "ttr-local-ha.py",
             "console": "integratedTerminal",
-            
         },
         {
             "name": "timer",
@@ -19,7 +17,6 @@
             "request": "launch",
             "program": "myTimer.py",
             "console": "integratedTerminal",
-            
         }
     ]
 }

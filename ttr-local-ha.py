@@ -18,12 +18,13 @@ numberToons = 1
 
 interval = 5
 
-randomNum = random.randint(0,100)
+randomNum = random.randint(0, 100)
+
 
 def get_ttr_info(port=1547):
     global randomNum
     myRes = None
-    api_url = "http://localhost:"+str(port)+ "/info.json"
+    api_url = "http://localhost:"+str(port) + "/info.json"
     headers = {
         "Authorization": "Bearer ttr-local-ha-" + str(randomNum),
         "User-Agent": "ttr-local-ha",
@@ -37,30 +38,34 @@ def get_ttr_info(port=1547):
 
 def my_loop():
     global timerThread, useTimer
-    for portNum in range(1547,1547+numberToons):
+    for portNum in range(1547, 1547+numberToons):
         ttr_info = get_ttr_info(portNum)
         if ttr_info != None:
             if ttr_info.status_code == 200:
                 ttr_json = ttr_info.json()
                 client.publish(
-                    "sensor/" + ttr_json["toon"]["name"].replace(" ", ""), ttr_info.content
+                    "sensor/" +
+                    ttr_json["toon"]["name"].replace(" ", ""), ttr_info.content
                 )
                 if not useTimer:
-                    print(ttr_json["toon"]["name"] + " " + str(ttr_json["laff"]["current"])+ " / " + str(ttr_json["laff"]["max"]))
+                    print(ttr_json["toon"]["name"] + " " + str(ttr_json["laff"]
+                          ["current"]) + " / " + str(ttr_json["laff"]["max"]))
                 if useTimer and ttr_json["location"]["zone"] == zoneTimer:
                     if timerThread == None:
-                        timerThread = threading.Thread(target=myTimer.startFullTime)
+                        timerThread = threading.Thread(
+                            target=myTimer.startFullTime)
                         timerThread.start()
                 elif useTimer and timerThread:
                     myTimer.endFullTime()
                     timerThread.join()
-                    timerThread=None
+                    timerThread = None
             else:
-                print("Connected to TTR with result code " + str(ttr_info.status_code))
+                print("Connected to TTR with result code " +
+                      str(ttr_info.status_code))
         else:
             print("TTR not running")
-    
-# HA MQTT discovery but seems more trouble than its worth 
+
+# HA MQTT discovery but seems more trouble than its worth
 # since i already have the yaml set up
 def discovery():
     pass
@@ -80,7 +85,8 @@ if __name__ == "__main__":
 
     # Create a client instance
     print("Starting")
-    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "ttr-local-ha-" + str(randomNum))
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2,
+                         "ttr-local-ha-" + str(randomNum))
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
 
@@ -95,9 +101,8 @@ if __name__ == "__main__":
     discovery()
 
     if useTimer:
-        thread = threading.Thread(target = myTimer.myTimer)
+        thread = threading.Thread(target=myTimer.myTimer)
         thread.start()
-
 
     while True:
         my_loop()
@@ -106,6 +111,3 @@ if __name__ == "__main__":
 
     client.loop_stop()
     client.disconnect()
-
-
-
