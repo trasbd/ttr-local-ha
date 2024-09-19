@@ -21,10 +21,11 @@ interval = 5
 randomNum = random.randint(0,100)
 
 def get_ttr_info(port=1547):
+    global randomNum
     myRes = None
     api_url = "http://localhost:"+str(port)+ "/info.json"
     headers = {
-        "Authorization": "Bearer ttr-local-ha" + str(randomNum),
+        "Authorization": "Bearer ttr-local-ha-" + str(randomNum),
         "User-Agent": "ttr-local-ha",
     }
     try:
@@ -79,7 +80,7 @@ if __name__ == "__main__":
 
     # Create a client instance
     print("Starting")
-    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "ttr-local-ha" + str(randomNum))
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "ttr-local-ha-" + str(randomNum))
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
 
