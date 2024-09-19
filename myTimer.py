@@ -1,6 +1,5 @@
 import time
 from tkinter import *
-from tkinter import messagebox
 
     # Declaration of variables
 root = None
@@ -61,10 +60,10 @@ def myTimer():
     fullTimeLabel = Label(root, textvariable=fullTime)
     fullTimeLabel.pack()
 
-    runTimeStartLabel = Label(root, textvariable=runTimeStartString)
+    #runTimeStartLabel = Label(root, textvariable=runTimeStartString)
     #runTimeStartLabel.pack()
 
-    runTimeEndLabel = Label(root, textvariable=runTimeEndString)
+    #runTimeEndLabel = Label(root, textvariable=runTimeEndString)
     #runTimeEndLabel.pack()
 
     runTimeTotalLabel = Label(root, textvariable=runTimeTotal)
