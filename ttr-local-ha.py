@@ -18,11 +18,13 @@ numberToons = 1
 
 interval = 5
 
+randomNum = random.randint(0,100)
+
 def get_ttr_info(port=1547):
     myRes = None
     api_url = "http://localhost:"+str(port)+ "/info.json"
     headers = {
-        "Authorization": "Bearer MYREALLYLONGTOKENIGOT",
+        "Authorization": "Bearer ttr-local-ha" + str(randomNum),
         "User-Agent": "ttr-local-ha",
     }
     try:
@@ -57,6 +59,10 @@ def my_loop():
         else:
             print("TTR not running")
     
+# HA MQTT discovery but seems more trouble than its worth 
+# since i already have the yaml set up
+def discovery():
+    pass
 
 
 if __name__ == "__main__":
@@ -73,7 +79,7 @@ if __name__ == "__main__":
 
     # Create a client instance
     print("Starting")
-    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "ttr-local-ha" + str(random.randint(0,100)))
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, "ttr-local-ha" + str(randomNum))
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
 
@@ -84,6 +90,8 @@ if __name__ == "__main__":
     client.connect(broker_address, broker_port)
 
     client.loop_start()
+
+    discovery()
 
     if useTimer:
         thread = threading.Thread(target = myTimer.myTimer)
