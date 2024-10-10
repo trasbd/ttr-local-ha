@@ -1,18 +1,10 @@
 import paho.mqtt.client as mqtt
 import time
 import requests
-import threading
 import random
-
-import myTimer
 
 # mySecrets.py contains MQTT username and password
 import mySecrets
-
-timerThread = None
-
-useTimer = False
-zoneTimer = "Scrap Factory"
 
 numberToons = 1
 
@@ -24,7 +16,7 @@ randomNum = random.randint(0, 100)
 def get_ttr_info(port=1547):
     global randomNum
     myRes = None
-    api_url = "http://localhost:"+str(port) + "/info.json"
+    api_url = "http://localhost:"+str(port) + "/all.json"
     headers = {
         "Authorization": "Bearer ttr-local-ha-" + str(randomNum),
         "User-Agent": "ttr-local-ha",
@@ -47,18 +39,10 @@ def my_loop():
                     "sensor/" +
                     ttr_json["toon"]["name"].replace(" ", ""), ttr_info.content
                 )
-                if not useTimer:
-                    print(ttr_json["toon"]["name"] + " " + str(ttr_json["laff"]
-                          ["current"]) + " / " + str(ttr_json["laff"]["max"]))
-                if useTimer and ttr_json["location"]["zone"] == zoneTimer:
-                    if timerThread == None:
-                        timerThread = threading.Thread(
-                            target=myTimer.startFullTime)
-                        timerThread.start()
-                elif useTimer and timerThread:
-                    myTimer.endFullTime()
-                    timerThread.join()
-                    timerThread = None
+                
+                print(ttr_json["toon"]["name"] + " " + str(ttr_json["laff"]
+                        ["current"]) + " / " + str(ttr_json["laff"]["max"]))
+                
             else:
                 print("Connected to TTR with result code " +
                       str(ttr_info.status_code))
@@ -100,14 +84,11 @@ if __name__ == "__main__":
 
     discovery()
 
-    if useTimer:
-        thread = threading.Thread(target=myTimer.myTimer)
-        thread.start()
+   
 
     while True:
         my_loop()
-        if not useTimer:
-            time.sleep(interval)
+        time.sleep(interval)
 
     client.loop_stop()
     client.disconnect()
