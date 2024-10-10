@@ -10,13 +10,6 @@
             "request": "launch",
             "program": "ttr-local-ha.py",
             "console": "integratedTerminal",
-        },
-        {
-            "name": "timer",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "myTimer.py",
-            "console": "integratedTerminal",
         }
     ]
 }
