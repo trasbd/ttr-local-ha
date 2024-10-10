@@ -29,7 +29,6 @@ def get_ttr_info(port=1547):
 
 
 def my_loop():
-    global timerThread, useTimer
     for portNum in range(1547, 1547+numberToons):
         ttr_info = get_ttr_info(portNum)
         if ttr_info != None:
@@ -39,10 +38,10 @@ def my_loop():
                     "sensor/" +
                     ttr_json["toon"]["name"].replace(" ", ""), ttr_info.content
                 )
-                
+
                 print(ttr_json["toon"]["name"] + " " + str(ttr_json["laff"]
-                        ["current"]) + " / " + str(ttr_json["laff"]["max"]))
-                
+                                                           ["current"]) + " / " + str(ttr_json["laff"]["max"]))
+
             else:
                 print("Connected to TTR with result code " +
                       str(ttr_info.status_code))
@@ -51,8 +50,20 @@ def my_loop():
 
 # HA MQTT discovery but seems more trouble than its worth
 # since i already have the yaml set up
-def discovery():
-    pass
+
+
+def discovery(ttr_json):
+    for suit in ttr_json["cogsuits"]:
+        meritJson = {"name": suit["department"] + " Cog Suit",
+                     "state_topic": "sensor/" + ttr_json["toon"]["name"].replace(" ", ""),
+                     "state_class": "measurement",
+                     "unique_id": "ttr_" + ttr_json["toon"]["name"].replace(" ", "") + "_" + suit["department"],
+                     "value_template": "{{ value_json.cogsuits." + suit + ".promotion.current }}",
+                     "device": {
+                        "name": ttr_json["toon"]["name"],
+                        "identifiers": ["ttr_" + ttr_json["toon"]["name"].replace(" ", "")]
+                    }
+        }
 
 
 if __name__ == "__main__":
@@ -82,9 +93,12 @@ if __name__ == "__main__":
 
     client.loop_start()
 
-    discovery()
-
-   
+    for portNum in range(1547, 1547+numberToons):
+        ttr_info = get_ttr_info(portNum)
+        if ttr_info != None:
+            if ttr_info.status_code == 200:
+                ttr_json = ttr_info.json()
+                discovery(ttr_json)
 
     while True:
         my_loop()

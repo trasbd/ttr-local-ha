@@ -1,0 +1,706 @@
+{
+  "toon": {
+    "name": "Sheriff Katie",
+    "species": "cat",
+    "headColor": "#ed5dd0",
+    "style": "74050401009f1b921b411b29002929010400053000092d00023d001f0000023d00"
+  },
+  "laff": {
+    "current": 115,
+    "max": 115
+  },
+  "location": {
+    "zone": "Toontown Central",
+    "neighborhood": "Toontown Central",
+    "district": "Zapwood",
+    "instanceId": null
+  },
+  "gags": {
+    "Toon-Up": null,
+    "Trap": {
+      "gag": {
+        "level": 7,
+        "name": "Railroad"
+      },
+      "organic": {
+        "level": 6,
+        "name": "TNT"
+      },
+      "experience": {
+        "current": 500,
+        "next": 500
+      }
+    },
+    "Lure": {
+      "gag": {
+        "level": 7,
+        "name": "Presentation"
+      },
+      "organic": null,
+      "experience": {
+        "current": 500,
+        "next": 500
+      }
+    },
+    "Sound": {
+      "gag": {
+        "level": 7,
+        "name": "Opera Singer"
+      },
+      "organic": null,
+      "experience": {
+        "current": 500,
+        "next": 500
+      }
+    },
+    "Throw": {
+      "gag": {
+        "level": 7,
+        "name": "Wedding Cake"
+      },
+      "organic": null,
+      "experience": {
+        "current": 500,
+        "next": 500
+      }
+    },
+    "Squirt": {
+      "gag": {
+        "level": 7,
+        "name": "Geyser"
+      },
+      "organic": null,
+      "experience": {
+        "current": 500,
+        "next": 500
+      }
+    },
+    "Drop": {
+      "gag": {
+        "level": 7,
+        "name": "Toontanic"
+      },
+      "organic": {
+        "level": 1,
+        "name": "Flower Pot"
+      },
+      "experience": {
+        "current": 500,
+        "next": 500
+      }
+    }
+  },
+  "tasks": [
+    {
+      "objective": {
+        "text": "Defeat 36 Level 12+ Sellbots",
+        "where": "Anywhere",
+        "progress": {
+          "text": "9 of 36 defeated",
+          "current": 9,
+          "target": 36
+        }
+      },
+      "from": {
+        "name": "Operator Ozzy",
+        "building": "",
+        "zone": "Sellbot Task Force Hideout",
+        "neighborhood": "Sellbot HQ"
+      },
+      "to": {
+        "name": "Toon Resistance Operator",
+        "building": "",
+        "zone": "Sellbot Task Force Hideout",
+        "neighborhood": "Sellbot HQ"
+      },
+      "reward": "700 Sellbot Skill Points",
+      "deletable": true
+    },
+    {
+      "objective": {
+        "text": "Defeat 7 Cog V.P.'s",
+        "where": "Sellbot HQ",
+        "progress": {
+          "text": "2 of 7 defeated",
+          "current": 2,
+          "target": 7
+        }
+      },
+      "from": {
+        "name": "Operator Ortensia",
+        "building": "",
+        "zone": "Sellbot Task Force Hideout",
+        "neighborhood": "Sellbot HQ"
+      },
+      "to": {
+        "name": "Toon Resistance Operator",
+        "building": "",
+        "zone": "Sellbot Task Force Hideout",
+        "neighborhood": "Sellbot HQ"
+      },
+      "reward": "900 Sellbot Skill Points",
+      "deletable": true
+    },
+    {
+      "objective": {
+        "text": "Defeat 8 Boss Cogs",
+        "where": "Anywhere",
+        "progress": {
+          "text": "5 of 8 defeated",
+          "current": 5,
+          "target": 8
+        }
+      },
+      "from": {
+        "name": "Operator Ortensia",
+        "building": "",
+        "zone": "Sellbot Task Force Hideout",
+        "neighborhood": "Sellbot HQ"
+      },
+      "to": {
+        "name": "Toon Resistance Operator",
+        "building": "",
+        "zone": "Sellbot Task Force Hideout",
+        "neighborhood": "Sellbot HQ"
+      },
+      "reward": "900 Sellbot Skill Points",
+      "deletable": true
+    },
+    {
+      "objective": {
+        "text": "Defeat 5 Cog V.P.'s",
+        "where": "Sellbot HQ",
+        "progress": {
+          "text": "2 of 5 defeated",
+          "current": 2,
+          "target": 5
+        }
+      },
+      "from": {
+        "name": "Operator Ozzy",
+        "building": "",
+        "zone": "Sellbot Task Force Hideout",
+        "neighborhood": "Sellbot HQ"
+      },
+      "to": {
+        "name": "Toon Resistance Operator",
+        "building": "",
+        "zone": "Sellbot Task Force Hideout",
+        "neighborhood": "Sellbot HQ"
+      },
+      "reward": "650 Sellbot Skill Points",
+      "deletable": true
+    }
+  ],
+  "invasion": null,
+  "fish": {
+    "rod": {
+      "id": 3,
+      "name": "Steel"
+    },
+    "collection": {
+      "0": {
+        "name": "Balloon Fish",
+        "album": {
+          "0": {
+            "name": "Balloon Fish",
+            "weight": 47
+          },
+          "1": {
+            "name": "Hot Air Balloon Fish",
+            "weight": 16
+          },
+          "2": {
+            "name": "Weather Balloon Fish",
+            "weight": 65
+          },
+          "3": {
+            "name": "Water Balloon Fish",
+            "weight": 69
+          },
+          "4": {
+            "name": "Red Balloon Fish",
+            "weight": 39
+          }
+        }
+      },
+      "2": {
+        "name": "Cat Fish",
+        "album": {
+          "0": {
+            "name": "Cat Fish",
+            "weight": 82
+          },
+          "2": {
+            "name": "Alley Cat Fish",
+            "weight": 140
+          },
+          "3": {
+            "name": "Tabby Cat Fish",
+            "weight": 48
+          },
+          "4": {
+            "name": "Tom Cat Fish",
+            "weight": 165
+          }
+        }
+      },
+      "4": {
+        "name": "Clown Fish",
+        "album": {
+          "0": {
+            "name": "Clown Fish",
+            "weight": 119
+          },
+          "1": {
+            "name": "Sad Clown Fish",
+            "weight": 106
+          },
+          "2": {
+            "name": "Party Clown Fish",
+            "weight": 109
+          },
+          "3": {
+            "name": "Circus Clown Fish",
+            "weight": 67
+          }
+        }
+      },
+      "6": {
+        "name": "Frozen Fish",
+        "album": {
+          "0": {
+            "name": "Frozen Fish",
+            "weight": 155
+          }
+        }
+      },
+      "8": {
+        "name": "Star Fish",
+        "album": {
+          "0": {
+            "name": "Star Fish",
+            "weight": 76
+          },
+          "1": {
+            "name": "Five Star Fish",
+            "weight": 93
+          },
+          "2": {
+            "name": "Rock Star Fish",
+            "weight": 132
+          },
+          "3": {
+            "name": "Shining Star Fish",
+            "weight": 72
+          }
+        }
+      },
+      "12": {
+        "name": "Dog Fish",
+        "album": {
+          "0": {
+            "name": "Dog Fish",
+            "weight": 195
+          },
+          "2": {
+            "name": "Hot Dog Fish",
+            "weight": 40
+          },
+          "3": {
+            "name": "Dalmatian Dog Fish",
+            "weight": 103
+          },
+          "4": {
+            "name": "Puppy Dog Fish",
+            "weight": 29
+          }
+        }
+      },
+      "14": {
+        "name": "Amore Eel",
+        "album": {
+          "0": {
+            "name": "Amore Eel",
+            "weight": 88
+          },
+          "1": {
+            "name": "Electric Amore Eel",
+            "weight": 67
+          }
+        }
+      },
+      "16": {
+        "name": "Nurse Shark",
+        "album": {
+          "0": {
+            "name": "Nurse Shark",
+            "weight": 178
+          },
+          "1": {
+            "name": "Clara Nurse Shark",
+            "weight": 168
+          }
+        }
+      },
+      "18": {
+        "name": "King Crab",
+        "album": {
+          "0": {
+            "name": "King Crab",
+            "weight": 61
+          },
+          "1": {
+            "name": "Alaskan King Crab",
+            "weight": 110
+          }
+        }
+      },
+      "20": {
+        "name": "Moon Fish",
+        "album": {
+          "0": {
+            "name": "Moon Fish",
+            "weight": 89
+          },
+          "2": {
+            "name": "Half Moon Fish",
+            "weight": 148
+          },
+          "3": {
+            "name": "New Moon Fish",
+            "weight": 16
+          },
+          "4": {
+            "name": "Crescent Moon Fish",
+            "weight": 56
+          },
+          "5": {
+            "name": "Harvest Moon Fish",
+            "weight": 178
+          }
+        }
+      },
+      "22": {
+        "name": "Sea Horse",
+        "album": {
+          "0": {
+            "name": "Sea Horse",
+            "weight": 216
+          }
+        }
+      },
+      "24": {
+        "name": "Pool Shark",
+        "album": {
+          "0": {
+            "name": "Pool Shark",
+            "weight": 157
+          },
+          "1": {
+            "name": "Kiddie Pool Shark",
+            "weight": 128
+          },
+          "2": {
+            "name": "Swimming Pool Shark",
+            "weight": 128
+          },
+          "3": {
+            "name": "Olympic Pool Shark",
+            "weight": 159
+          }
+        }
+      },
+      "26": {
+        "name": "Bear Acuda",
+        "album": {
+          "0": {
+            "name": "Brown Bear Acuda",
+            "weight": 188
+          },
+          "1": {
+            "name": "Black Bear Acuda",
+            "weight": 179
+          },
+          "2": {
+            "name": "Koala Bear Acuda",
+            "weight": 189
+          },
+          "3": {
+            "name": "Honey Bear Acuda",
+            "weight": 182
+          },
+          "4": {
+            "name": "Polar Bear Acuda",
+            "weight": 192
+          }
+        }
+      },
+      "28": {
+        "name": "Cutthroat Trout",
+        "album": {
+          "0": {
+            "name": "Cutthroat Trout",
+            "weight": 132
+          },
+          "1": {
+            "name": "Captain Cutthroat Trout",
+            "weight": 64
+          },
+          "2": {
+            "name": "Scurvy Cutthroat Trout",
+            "weight": 64
+          }
+        }
+      },
+      "30": {
+        "name": "Piano Tuna",
+        "album": {
+          "4": {
+            "name": "Player Piano Tuna",
+            "weight": 192
+          }
+        }
+      },
+      "32": {
+        "name": "Peanut Butter & Jellyfish",
+        "album": {
+          "0": {
+            "name": "Peanut Butter & Jellyfish",
+            "weight": 77
+          },
+          "1": {
+            "name": "Grape PB&J Fish",
+            "weight": 68
+          },
+          "2": {
+            "name": "Crunchy PB&J Fish",
+            "weight": 61
+          },
+          "3": {
+            "name": "Strawberry PB&J Fish",
+            "weight": 47
+          },
+          "4": {
+            "name": "Concord Grape PB&J Fish",
+            "weight": 53
+          }
+        }
+      }
+    }
+  },
+  "flowers": {
+    "shovel": {
+      "id": 2,
+      "name": "Silver Shovel"
+    },
+    "collection": {
+      "49": {
+        "name": "Daisy",
+        "album": {
+          "0": "School Daisy",
+          "1": "Lazy Daisy",
+          "2": "Midsummer Daisy",
+          "3": "Freshasa Daisy",
+          "4": "Whoopsie Daisy"
+        }
+      },
+      "50": {
+        "name": "Tulip",
+        "album": {
+          "0": "Onelip"
+        }
+      },
+      "51": {
+        "name": "Carnation",
+        "album": {
+          "0": "What-in Carnation",
+          "1": "Instant Carnation",
+          "2": "Hybrid Carnation",
+          "3": "Side Carnation"
+        }
+      },
+      "52": {
+        "name": "Lily",
+        "album": {
+          "0": "Lily-of-the-Alley",
+          "1": "Lily Pad",
+          "2": "Tiger Lily",
+          "3": "Livered Lily",
+          "4": "Chili Lily"
+        }
+      },
+      "53": {
+        "name": "Daffodil",
+        "album": {
+          "0": "Laff-o-dil",
+          "1": "Daffy Dill",
+          "2": "Giraff-o-dil",
+          "3": "Time and a half-o-dil"
+        }
+      },
+      "54": {
+        "name": "Pansy",
+        "album": {
+          "0": "Dandy Pansy",
+          "1": "Chim Pansy",
+          "2": "Potsen Pansy",
+          "3": "Marzi Pansy"
+        }
+      },
+      "56": {
+        "name": "Rose",
+        "album": {
+          "0": "Summer's Last Rose",
+          "1": "Corn Rose"
+        }
+      }
+    }
+  },
+  "cogsuits": {
+    "c": {
+      "department": "Bossbot",
+      "hasDisguise": true,
+      "suit": {
+        "id": "mm",
+        "name": "Micro\u0003manager"
+      },
+      "version": 1,
+      "level": 5,
+      "promotion": {
+        "current": 0,
+        "target": 220
+      }
+    },
+    "l": {
+      "department": "Lawbot",
+      "hasDisguise": true,
+      "suit": {
+        "id": "dt",
+        "name": "Double Talker"
+      },
+      "version": 1,
+      "level": 7,
+      "promotion": {
+        "current": 0,
+        "target": 600
+      }
+    },
+    "m": {
+      "department": "Cashbot",
+      "hasDisguise": true,
+      "suit": {
+        "id": "ls",
+        "name": "Loan Shark"
+      },
+      "version": 1,
+      "level": 10,
+      "promotion": {
+        "current": 0,
+        "target": 940
+      }
+    },
+    "s": {
+      "department": "Sellbot",
+      "hasDisguise": true,
+      "suit": {
+        "id": "cc",
+        "name": "Cold Caller"
+      },
+      "version": 2,
+      "level": 22,
+      "promotion": {
+        "current": 834,
+        "target": 2200
+      }
+    }
+  },
+  "golf": [
+    {
+      "name": "Courses Completed",
+      "num": 4
+    },
+    {
+      "name": "Courses Under Par",
+      "num": 4
+    },
+    {
+      "name": "Hole In One Shots",
+      "num": 3
+    },
+    {
+      "name": "Eagle Or Better Shots",
+      "num": 2
+    },
+    {
+      "name": "Birdie Or Better Shots",
+      "num": 13
+    },
+    {
+      "name": "Par Or Better Shots",
+      "num": 14
+    },
+    {
+      "name": "Multiplayer Courses Completed",
+      "num": 2
+    },
+    {
+      "name": "Walk In The Par Wins",
+      "num": 1
+    },
+    {
+      "name": "Hole Some Fun Wins",
+      "num": 0
+    },
+    {
+      "name": "The Hole Kit And Caboodle Wins",
+      "num": 0
+    }
+  ],
+  "racing": [
+    {
+      "name": "Speedway Wins",
+      "num": 0
+    },
+    {
+      "name": "Rural Wins",
+      "num": 0
+    },
+    {
+      "name": "Urban Wins",
+      "num": 0
+    },
+    {
+      "name": "Total Wins",
+      "num": 0
+    },
+    {
+      "name": "Speedway Qualify Count",
+      "num": 1
+    },
+    {
+      "name": "Rural Qualify Count",
+      "num": 0
+    },
+    {
+      "name": "Urban Qualify Count",
+      "num": 0
+    },
+    {
+      "name": "Total Qualify Count",
+      "num": 1
+    },
+    {
+      "name": "Tournament Race Wins",
+      "num": 0
+    },
+    {
+      "name": "Tournament Race Qualify Count",
+      "num": 0
+    },
+    {
+      "name": "Unique race tracks completed",
+      "num": 1
+    }
+  ]
+}
