@@ -1,19 +1,20 @@
 {
   "toon": {
+    "id": "TTID-WCMH-PBRC",
     "name": "Sheriff Katie",
     "species": "cat",
-    "headColor": "#ed5dd0",
-    "style": "74050401009f1b921b411b29002929010400053000092d00023d001f0000023d00"
+    "headColor": "#f7b0b2",
+    "style": "74050401001e1b151b521d010001010104002573001000000334000a0000012b00"
   },
   "laff": {
-    "current": 115,
-    "max": 115
+    "current": 125,
+    "max": 125
   },
   "location": {
-    "zone": "Toontown Central",
-    "neighborhood": "Toontown Central",
+    "zone": "Sheriff Katie's Estate",
+    "neighborhood": "Sheriff Katie's Estate",
     "district": "Zapwood",
-    "instanceId": null
+    "instanceId": 576148
   },
   "gags": {
     "Toon-Up": null,
@@ -22,10 +23,7 @@
         "level": 7,
         "name": "Railroad"
       },
-      "organic": {
-        "level": 6,
-        "name": "TNT"
-      },
+      "organic": null,
       "experience": {
         "current": 500,
         "next": 500
@@ -80,10 +78,7 @@
         "level": 7,
         "name": "Toontanic"
       },
-      "organic": {
-        "level": 1,
-        "name": "Flower Pot"
-      },
+      "organic": null,
       "experience": {
         "current": 500,
         "next": 500
@@ -93,66 +88,42 @@
   "tasks": [
     {
       "objective": {
-        "text": "Defeat 36 Level 12+ Sellbots",
+        "text": "Defeat 250 Cogs",
         "where": "Anywhere",
         "progress": {
-          "text": "9 of 36 defeated",
-          "current": 9,
-          "target": 36
+          "text": "160 of 250 defeated",
+          "current": 160,
+          "target": 250
         }
       },
       "from": {
-        "name": "Operator Ozzy",
-        "building": "",
-        "zone": "Sellbot Task Force Hideout",
-        "neighborhood": "Sellbot HQ"
+        "name": "HQ Officer",
+        "building": "Toon HQ",
+        "zone": "Playground",
+        "neighborhood": "The Brrrgh"
       },
       "to": {
-        "name": "Toon Resistance Operator",
-        "building": "",
-        "zone": "Sellbot Task Force Hideout",
-        "neighborhood": "Sellbot HQ"
+        "name": "HQ Officer",
+        "building": "Toon HQ",
+        "zone": "Any Street",
+        "neighborhood": "Any Neighborhood"
       },
-      "reward": "700 Sellbot Skill Points",
+      "reward": "Reward: 1000 jellybeans",
+      "type": "Just for fun!",
       "deletable": true
     },
     {
       "objective": {
-        "text": "Defeat 7 Cog V.P.'s",
-        "where": "Sellbot HQ",
-        "progress": {
-          "text": "2 of 7 defeated",
-          "current": 2,
-          "target": 7
-        }
-      },
-      "from": {
-        "name": "Operator Ortensia",
-        "building": "",
-        "zone": "Sellbot Task Force Hideout",
-        "neighborhood": "Sellbot HQ"
-      },
-      "to": {
-        "name": "Toon Resistance Operator",
-        "building": "",
-        "zone": "Sellbot Task Force Hideout",
-        "neighborhood": "Sellbot HQ"
-      },
-      "reward": "900 Sellbot Skill Points",
-      "deletable": true
-    },
-    {
-      "objective": {
-        "text": "Defeat 8 Boss Cogs",
+        "text": "Collect 500 Stolen Jokes",
         "where": "Anywhere",
         "progress": {
-          "text": "5 of 8 defeated",
-          "current": 5,
-          "target": 8
+          "text": "0 of 500 collected",
+          "current": 0,
+          "target": 500
         }
       },
       "from": {
-        "name": "Operator Ortensia",
+        "name": "Operator Oakley",
         "building": "",
         "zone": "Sellbot Task Force Hideout",
         "neighborhood": "Sellbot HQ"
@@ -163,21 +134,48 @@
         "zone": "Sellbot Task Force Hideout",
         "neighborhood": "Sellbot HQ"
       },
-      "reward": "900 Sellbot Skill Points",
+      "reward": "Reward: Litter-less Lid",
+      "type": "Rank-Up Reward!",
       "deletable": true
     },
     {
       "objective": {
-        "text": "Defeat 5 Cog V.P.'s",
-        "where": "Sellbot HQ",
+        "text": "Defeat 300 Cogs",
+        "where": "Anywhere",
         "progress": {
-          "text": "2 of 5 defeated",
-          "current": 2,
-          "target": 5
+          "text": "145 of 300 defeated",
+          "current": 145,
+          "target": 300
         }
       },
       "from": {
-        "name": "Operator Ozzy",
+        "name": "HQ Officer",
+        "building": "Toon HQ",
+        "zone": "Playground",
+        "neighborhood": "The Brrrgh"
+      },
+      "to": {
+        "name": "HQ Officer",
+        "building": "Toon HQ",
+        "zone": "Any Street",
+        "neighborhood": "Any Neighborhood"
+      },
+      "reward": "Reward: 1100 jellybeans",
+      "type": "Just for fun!",
+      "deletable": true
+    },
+    {
+      "objective": {
+        "text": "Defeat 300 Cogs",
+        "where": "Anywhere",
+        "progress": {
+          "text": "0 of 300 defeated",
+          "current": 0,
+          "target": 300
+        }
+      },
+      "from": {
+        "name": "Operator Oliver",
         "building": "",
         "zone": "Sellbot Task Force Hideout",
         "neighborhood": "Sellbot HQ"
@@ -188,66 +186,25 @@
         "zone": "Sellbot Task Force Hideout",
         "neighborhood": "Sellbot HQ"
       },
-      "reward": "650 Sellbot Skill Points",
+      "reward": "Reward: 900 jellybeans",
+      "type": "Rank-Up Skill Points!",
       "deletable": true
     }
   ],
   "invasion": null,
   "fish": {
     "rod": {
-      "id": 3,
-      "name": "Steel"
+      "id": 4,
+      "name": "Gold"
     },
     "collection": {
-      "0": {
-        "name": "Balloon Fish",
-        "album": {
-          "0": {
-            "name": "Balloon Fish",
-            "weight": 47
-          },
-          "1": {
-            "name": "Hot Air Balloon Fish",
-            "weight": 16
-          },
-          "2": {
-            "name": "Weather Balloon Fish",
-            "weight": 65
-          },
-          "3": {
-            "name": "Water Balloon Fish",
-            "weight": 69
-          },
-          "4": {
-            "name": "Red Balloon Fish",
-            "weight": 39
-          }
-        }
-      },
-      "2": {
-        "name": "Cat Fish",
-        "album": {
-          "0": {
-            "name": "Cat Fish",
-            "weight": 82
-          },
-          "2": {
-            "name": "Alley Cat Fish",
-            "weight": 140
-          },
-          "3": {
-            "name": "Tabby Cat Fish",
-            "weight": 48
-          },
-          "4": {
-            "name": "Tom Cat Fish",
-            "weight": 165
-          }
-        }
-      },
       "4": {
         "name": "Clown Fish",
         "album": {
+          "2": {
+            "name": "Party Clown Fish",
+            "weight": 114
+          },
           "0": {
             "name": "Clown Fish",
             "weight": 119
@@ -256,22 +213,30 @@
             "name": "Sad Clown Fish",
             "weight": 106
           },
-          "2": {
-            "name": "Party Clown Fish",
-            "weight": 109
-          },
           "3": {
             "name": "Circus Clown Fish",
             "weight": 67
           }
         }
       },
-      "6": {
-        "name": "Frozen Fish",
+      "2": {
+        "name": "Cat Fish",
         "album": {
           "0": {
-            "name": "Frozen Fish",
-            "weight": 155
+            "name": "Cat Fish",
+            "weight": 86
+          },
+          "3": {
+            "name": "Tabby Cat Fish",
+            "weight": 72
+          },
+          "4": {
+            "name": "Tom Cat Fish",
+            "weight": 165
+          },
+          "2": {
+            "name": "Alley Cat Fish",
+            "weight": 140
           }
         }
       },
@@ -280,66 +245,94 @@
         "album": {
           "0": {
             "name": "Star Fish",
-            "weight": 76
+            "weight": 77
           },
           "1": {
             "name": "Five Star Fish",
             "weight": 93
           },
-          "2": {
-            "name": "Rock Star Fish",
-            "weight": 132
-          },
           "3": {
             "name": "Shining Star Fish",
             "weight": 72
+          },
+          "2": {
+            "name": "Rock Star Fish",
+            "weight": 132
+          }
+        }
+      },
+      "0": {
+        "name": "Balloon Fish",
+        "album": {
+          "1": {
+            "name": "Hot Air Balloon Fish",
+            "weight": 16
+          },
+          "0": {
+            "name": "Balloon Fish",
+            "weight": 47
+          },
+          "4": {
+            "name": "Red Balloon Fish",
+            "weight": 39
+          },
+          "3": {
+            "name": "Water Balloon Fish",
+            "weight": 69
+          },
+          "2": {
+            "name": "Weather Balloon Fish",
+            "weight": 65
           }
         }
       },
       "12": {
         "name": "Dog Fish",
         "album": {
-          "0": {
-            "name": "Dog Fish",
-            "weight": 195
-          },
-          "2": {
-            "name": "Hot Dog Fish",
-            "weight": 40
+          "4": {
+            "name": "Puppy Dog Fish",
+            "weight": 29
           },
           "3": {
             "name": "Dalmatian Dog Fish",
             "weight": 103
           },
+          "2": {
+            "name": "Hot Dog Fish",
+            "weight": 55
+          },
+          "0": {
+            "name": "Dog Fish",
+            "weight": 230
+          },
+          "1": {
+            "name": "Bull Dog Fish",
+            "weight": 314
+          }
+        }
+      },
+      "32": {
+        "name": "Peanut Butter & Jellyfish",
+        "album": {
+          "0": {
+            "name": "Peanut Butter & Jellyfish",
+            "weight": 77
+          },
+          "1": {
+            "name": "Grape PB&J Fish",
+            "weight": 71
+          },
+          "3": {
+            "name": "Strawberry PB&J Fish",
+            "weight": 47
+          },
+          "2": {
+            "name": "Crunchy PB&J Fish",
+            "weight": 61
+          },
           "4": {
-            "name": "Puppy Dog Fish",
-            "weight": 29
-          }
-        }
-      },
-      "14": {
-        "name": "Amore Eel",
-        "album": {
-          "0": {
-            "name": "Amore Eel",
-            "weight": 88
-          },
-          "1": {
-            "name": "Electric Amore Eel",
-            "weight": 67
-          }
-        }
-      },
-      "16": {
-        "name": "Nurse Shark",
-        "album": {
-          "0": {
-            "name": "Nurse Shark",
-            "weight": 178
-          },
-          "1": {
-            "name": "Clara Nurse Shark",
-            "weight": 168
+            "name": "Concord Grape PB&J Fish",
+            "weight": 53
           }
         }
       },
@@ -356,83 +349,29 @@
           }
         }
       },
-      "20": {
-        "name": "Moon Fish",
+      "16": {
+        "name": "Nurse Shark",
         "album": {
           "0": {
-            "name": "Moon Fish",
-            "weight": 89
-          },
-          "2": {
-            "name": "Half Moon Fish",
-            "weight": 148
-          },
-          "3": {
-            "name": "New Moon Fish",
-            "weight": 16
-          },
-          "4": {
-            "name": "Crescent Moon Fish",
-            "weight": 56
-          },
-          "5": {
-            "name": "Harvest Moon Fish",
+            "name": "Nurse Shark",
             "weight": 178
-          }
-        }
-      },
-      "22": {
-        "name": "Sea Horse",
-        "album": {
-          "0": {
-            "name": "Sea Horse",
-            "weight": 216
-          }
-        }
-      },
-      "24": {
-        "name": "Pool Shark",
-        "album": {
-          "0": {
-            "name": "Pool Shark",
-            "weight": 157
           },
           "1": {
-            "name": "Kiddie Pool Shark",
-            "weight": 128
-          },
-          "2": {
-            "name": "Swimming Pool Shark",
-            "weight": 128
-          },
-          "3": {
-            "name": "Olympic Pool Shark",
-            "weight": 159
+            "name": "Clara Nurse Shark",
+            "weight": 168
           }
         }
       },
-      "26": {
-        "name": "Bear Acuda",
+      "14": {
+        "name": "Amore Eel",
         "album": {
           "0": {
-            "name": "Brown Bear Acuda",
-            "weight": 188
+            "name": "Amore Eel",
+            "weight": 92
           },
           "1": {
-            "name": "Black Bear Acuda",
-            "weight": 179
-          },
-          "2": {
-            "name": "Koala Bear Acuda",
-            "weight": 189
-          },
-          "3": {
-            "name": "Honey Bear Acuda",
-            "weight": 182
-          },
-          "4": {
-            "name": "Polar Bear Acuda",
-            "weight": 192
+            "name": "Electric Amore Eel",
+            "weight": 83
           }
         }
       },
@@ -443,13 +382,97 @@
             "name": "Cutthroat Trout",
             "weight": 132
           },
-          "1": {
-            "name": "Captain Cutthroat Trout",
-            "weight": 64
-          },
           "2": {
             "name": "Scurvy Cutthroat Trout",
             "weight": 64
+          },
+          "1": {
+            "name": "Captain Cutthroat Trout",
+            "weight": 64
+          }
+        }
+      },
+      "20": {
+        "name": "Moon Fish",
+        "album": {
+          "0": {
+            "name": "Moon Fish",
+            "weight": 89
+          },
+          "3": {
+            "name": "New Moon Fish",
+            "weight": 16
+          },
+          "2": {
+            "name": "Half Moon Fish",
+            "weight": 148
+          },
+          "5": {
+            "name": "Harvest Moon Fish",
+            "weight": 178
+          },
+          "4": {
+            "name": "Crescent Moon Fish",
+            "weight": 56
+          }
+        }
+      },
+      "6": {
+        "name": "Frozen Fish",
+        "album": {
+          "0": {
+            "name": "Frozen Fish",
+            "weight": 182
+          }
+        }
+      },
+      "24": {
+        "name": "Pool Shark",
+        "album": {
+          "2": {
+            "name": "Swimming Pool Shark",
+            "weight": 128
+          },
+          "3": {
+            "name": "Olympic Pool Shark",
+            "weight": 159
+          },
+          "1": {
+            "name": "Kiddie Pool Shark",
+            "weight": 128
+          },
+          "0": {
+            "name": "Pool Shark",
+            "weight": 164
+          }
+        }
+      },
+      "26": {
+        "name": "Bear Acuda",
+        "album": {
+          "0": {
+            "name": "Brown Bear Acuda",
+            "weight": 222
+          },
+          "1": {
+            "name": "Black Bear Acuda",
+            "weight": 227
+          },
+          "2": {
+            "name": "Koala Bear Acuda",
+            "weight": 197
+          },
+          "4": {
+            "name": "Polar Bear Acuda",
+            "weight": 228
+          },
+          "3": {
+            "name": "Honey Bear Acuda",
+            "weight": 188
+          },
+          "5": {
+            "name": "Panda Bear Acuda",
+            "weight": 245
           }
         }
       },
@@ -459,31 +482,44 @@
           "4": {
             "name": "Player Piano Tuna",
             "weight": 192
+          },
+          "3": {
+            "name": "Upright Piano Tuna",
+            "weight": 228
+          },
+          "0": {
+            "name": "Piano Tuna",
+            "weight": 251
           }
         }
       },
-      "32": {
-        "name": "Peanut Butter & Jellyfish",
+      "22": {
+        "name": "Sea Horse",
         "album": {
           "0": {
-            "name": "Peanut Butter & Jellyfish",
-            "weight": 77
+            "name": "Sea Horse",
+            "weight": 236
           },
           "1": {
-            "name": "Grape PB&J Fish",
-            "weight": 68
-          },
-          "2": {
-            "name": "Crunchy PB&J Fish",
-            "weight": 61
+            "name": "Rocking Sea Horse",
+            "weight": 273
           },
           "3": {
-            "name": "Strawberry PB&J Fish",
-            "weight": 47
+            "name": "Arabian Sea Horse",
+            "weight": 259
           },
-          "4": {
-            "name": "Concord Grape PB&J Fish",
-            "weight": 53
+          "2": {
+            "name": "Clydesdale Sea Horse",
+            "weight": 271
+          }
+        }
+      },
+      "10": {
+        "name": "Holey Mackerel",
+        "album": {
+          "0": {
+            "name": "Holey Mackerel",
+            "weight": 145
           }
         }
       }
@@ -492,9 +528,26 @@
   "flowers": {
     "shovel": {
       "id": 2,
-      "name": "Silver Shovel"
+      "name": "Silver Shovel",
+      "curSkill": 81,
+      "maxSkill": 319
+    },
+    "wateringCan": {
+      "id": 3,
+      "name": "Huge Watering Can",
+      "curSkill": 108,
+      "maxSkill": 999
     },
     "collection": {
+      "53": {
+        "name": "Daffodil",
+        "album": {
+          "0": "Laff-o-dil",
+          "1": "Daffy Dill",
+          "2": "Giraff-o-dil",
+          "3": "Time and a half-o-dil"
+        }
+      },
       "49": {
         "name": "Daisy",
         "album": {
@@ -505,12 +558,6 @@
           "4": "Whoopsie Daisy"
         }
       },
-      "50": {
-        "name": "Tulip",
-        "album": {
-          "0": "Onelip"
-        }
-      },
       "51": {
         "name": "Carnation",
         "album": {
@@ -518,6 +565,15 @@
           "1": "Instant Carnation",
           "2": "Hybrid Carnation",
           "3": "Side Carnation"
+        }
+      },
+      "54": {
+        "name": "Pansy",
+        "album": {
+          "0": "Dandy Pansy",
+          "1": "Chim Pansy",
+          "2": "Potsen Pansy",
+          "3": "Marzi Pansy"
         }
       },
       "52": {
@@ -530,29 +586,17 @@
           "4": "Chili Lily"
         }
       },
-      "53": {
-        "name": "Daffodil",
-        "album": {
-          "0": "Laff-o-dil",
-          "1": "Daffy Dill",
-          "2": "Giraff-o-dil",
-          "3": "Time and a half-o-dil"
-        }
-      },
-      "54": {
-        "name": "Pansy",
-        "album": {
-          "0": "Dandy Pansy",
-          "1": "Chim Pansy",
-          "2": "Potsen Pansy",
-          "3": "Marzi Pansy"
-        }
-      },
       "56": {
         "name": "Rose",
         "album": {
           "0": "Summer's Last Rose",
           "1": "Corn Rose"
+        }
+      },
+      "50": {
+        "name": "Tulip",
+        "album": {
+          "0": "Onelip"
         }
       }
     }
@@ -566,38 +610,38 @@
         "name": "Micro\u0003manager"
       },
       "version": 1,
-      "level": 5,
+      "level": 6,
       "promotion": {
-        "current": 0,
-        "target": 220
+        "current": 72,
+        "target": 250
       }
     },
     "l": {
       "department": "Lawbot",
       "hasDisguise": true,
       "suit": {
-        "id": "dt",
-        "name": "Double Talker"
+        "id": "ac",
+        "name": "Ambulance Chaser"
       },
       "version": 1,
-      "level": 7,
+      "level": 8,
       "promotion": {
         "current": 0,
-        "target": 600
+        "target": 950
       }
     },
     "m": {
       "department": "Cashbot",
       "hasDisguise": true,
       "suit": {
-        "id": "ls",
-        "name": "Loan Shark"
+        "id": "rb",
+        "name": "Robber Baron"
       },
       "version": 1,
-      "level": 10,
+      "level": 15,
       "promotion": {
         "current": 0,
-        "target": 940
+        "target": 890
       }
     },
     "s": {
@@ -608,10 +652,10 @@
         "name": "Cold Caller"
       },
       "version": 2,
-      "level": 22,
+      "level": 26,
       "promotion": {
-        "current": 834,
-        "target": 2200
+        "current": 2064,
+        "target": 3880
       }
     }
   },
@@ -702,5 +746,272 @@
       "name": "Unique race tracks completed",
       "num": 1
     }
-  ]
+  ],
+  "beans": {
+    "jar": {
+      "current": 250,
+      "max": 250
+    },
+    "bank": {
+      "current": 3552,
+      "max": 15000
+    }
+  },
+  "rewards": {
+    "sos": {
+      "Barbara Seville": 14,
+      "Barnacle Bessie": 12,
+      "Sticky Lou": 14,
+      "Lil Oldman": 3,
+      "Stinky Ned": 6,
+      "Doctor Drift": 8,
+      "Mr. Freeze": 10,
+      "Flippy": 6,
+      "Moe Zart": 13,
+      "Shelly Seaweed": 4,
+      "Baker Bridget": 7,
+      "Soggy Nell": 16,
+      "Clumsy Ned": 16,
+      "Professor Pete": 8,
+      "Clerk Will": 12,
+      "Flim Flam": 6,
+      "Julius Wheezer": 12,
+      "Clerk Clara": 10,
+      "Soggy Bottom": 6,
+      "Nancy Gas": 13,
+      "Professor Guffaw": 10,
+      "Melody Wavers": 6,
+      "Franz Neckvein": 12,
+      "Clerk Ray": 10,
+      "Clerk Penny": 6,
+      "Madam Chuckle": 5,
+      "Sofie Squirt": 2,
+      "Sid Sonata": 6,
+      "Daffy Don": 2
+    },
+    "unites": {
+      "Gag-Up": {
+        "Gag-Up Toon-Up": 3,
+        "Gag-Up Drop": 1,
+        "Gag-Up Lure": 2,
+        "Gag-Up Squirt": 1,
+        "Gag-Up Throw": 1
+      },
+      "Toon-Up": {
+        "65 Toon-Up": 2,
+        "80 Toon-Up": 1
+      }
+    },
+    "summons": {
+      "f": {
+        "name": "Flunky",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "p": {
+        "name": "Pencil Pusher",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "ym": {
+        "name": "Yesman",
+        "single": true,
+        "building": true,
+        "invasion": true
+      },
+      "mm": {
+        "name": "Micro\u0003manager",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "ds": {
+        "name": "Downsizer",
+        "single": true,
+        "building": true,
+        "invasion": true
+      },
+      "hh": {
+        "name": "Head Hunter",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "cr": {
+        "name": "Corporate Raider",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "tbc": {
+        "name": "The Big Cheese",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "bf": {
+        "name": "Bottom Feeder",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "b": {
+        "name": "Blood\u0003sucker",
+        "single": true,
+        "building": false,
+        "invasion": false
+      },
+      "dt": {
+        "name": "Double Talker",
+        "single": true,
+        "building": false,
+        "invasion": false
+      },
+      "ac": {
+        "name": "Ambulance Chaser",
+        "single": true,
+        "building": true,
+        "invasion": false
+      },
+      "bs": {
+        "name": "Back Stabber",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "sd": {
+        "name": "Spin Doctor",
+        "single": true,
+        "building": false,
+        "invasion": false
+      },
+      "le": {
+        "name": "Legal Eagle",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "bw": {
+        "name": "Big Wig",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "sc": {
+        "name": "Short Change",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "pp": {
+        "name": "Penny Pincher",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "tw": {
+        "name": "Tightwad",
+        "single": true,
+        "building": false,
+        "invasion": false
+      },
+      "bc": {
+        "name": "Bean Counter",
+        "single": true,
+        "building": true,
+        "invasion": false
+      },
+      "nc": {
+        "name": "Number Cruncher",
+        "single": true,
+        "building": true,
+        "invasion": true
+      },
+      "mb": {
+        "name": "Money Bags",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "ls": {
+        "name": "Loan Shark",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "rb": {
+        "name": "Robber Baron",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "cc": {
+        "name": "Cold Caller",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "tm": {
+        "name": "Tele\u0003marketer",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "nd": {
+        "name": "Name Dropper",
+        "single": true,
+        "building": false,
+        "invasion": false
+      },
+      "gh": {
+        "name": "Glad Hander",
+        "single": true,
+        "building": false,
+        "invasion": false
+      },
+      "ms": {
+        "name": "Mover & Shaker",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "tf": {
+        "name": "Two-Face",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "m": {
+        "name": "The Mingler",
+        "single": false,
+        "building": false,
+        "invasion": false
+      },
+      "mh": {
+        "name": "Mr. Hollywood",
+        "single": false,
+        "building": false,
+        "invasion": false
+      }
+    },
+    "pinkslips": 22,
+    "remotes": {
+      "Damage Remote": {
+        "1": 19,
+        "2": 8,
+        "3": 6
+      },
+      "Healing Remote": {
+        "1": 8,
+        "2": 4,
+        "3": 5
+      }
+    }
+  },
+  "cattlelog": {
+    "series": 1,
+    "issue": 9
+  }
 }

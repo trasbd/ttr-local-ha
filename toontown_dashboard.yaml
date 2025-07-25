@@ -1,0 +1,149 @@
+views:
+  - title: Toon
+    path: toon
+    cards:
+  - type: entities
+    title: Toon
+    entities:
+    - sensor.sheriff_katie_laff
+    - sensor.sheriff_katie_district
+    - sensor.sheriff_katie_zone
+    - sensor.sheriff_katie_toon
+    - sensor.sheriff_katie_toon_up_gag
+    - sensor.sheriff_katie_unites_gag_up_gag_up_toon_up
+    - sensor.sheriff_katie_unites_toon_up_65_toon_up
+    - sensor.sheriff_katie_unites_toon_up_80_toon_up
+  - title: Gags
+    path: gags
+    cards:
+  - type: entities
+    title: Gags
+    entities:
+    - sensor.sheriff_katie_trap_gag
+    - sensor.sheriff_katie_lure_gag
+    - sensor.sheriff_katie_sound_gag
+    - sensor.sheriff_katie_throw_gag
+    - sensor.sheriff_katie_squirt_gag
+    - sensor.sheriff_katie_drop_gag
+    - sensor.sheriff_katie_unites_gag_up_gag_up_drop
+    - sensor.sheriff_katie_unites_gag_up_gag_up_lure
+    - sensor.sheriff_katie_unites_gag_up_gag_up_squirt
+    - sensor.sheriff_katie_unites_gag_up_gag_up_throw
+- title: Cog Suits
+  path: cog_suits
+  cards:
+  - type: entities
+    title: Cog Suits
+    entities:
+    - sensor.sheriff_katie_bossbot_suit
+    - sensor.sheriff_katie_bossbot_promotion
+    - sensor.sheriff_katie_lawbot_suit_2
+    - sensor.sheriff_katie_lawbot_promotion
+    - sensor.sheriff_katie_cashbot_suit_2
+    - sensor.sheriff_katie_cashbot_promotion
+    - sensor.sheriff_katie_sellbot_suit_2
+    - sensor.sheriff_katie_sellbot_promotion
+- title: Tasks
+  path: tasks
+  cards:
+  - type: entities
+    title: Tasks
+    entities:
+    - sensor.sheriff_katie_task_1
+    - sensor.sheriff_katie_task_2
+    - sensor.sheriff_katie_task_3
+    - sensor.sheriff_katie_task_4
+- title: Beans & Economy
+  path: beans_&_economy
+  cards:
+  - type: entities
+    title: Beans & Economy
+    entities:
+    - sensor.sheriff_katie_beans_wallet
+    - sensor.sheriff_katie_beans_bank
+    - sensor.sheriff_katie_summons_bean_counter
+- title: SOS & Rewards
+  path: sos_&_rewards
+  cards:
+  - type: entities
+    title: SOS & Rewards
+    entities:
+    - sensor.sheriff_katie_sos_barbara_seville
+    - sensor.sheriff_katie_sos_barnacle_bessie
+    - sensor.sheriff_katie_sos_sticky_lou
+    - sensor.sheriff_katie_sos_lil_oldman
+    - sensor.sheriff_katie_sos_stinky_ned
+    - sensor.sheriff_katie_sos_doctor_drift
+    - sensor.sheriff_katie_sos_mr_freeze
+    - sensor.sheriff_katie_sos_flippy
+    - sensor.sheriff_katie_sos_moe_zart
+    - sensor.sheriff_katie_sos_shelly_seaweed
+    - sensor.sheriff_katie_sos_baker_bridget
+    - sensor.sheriff_katie_sos_soggy_nell
+    - sensor.sheriff_katie_sos_clumsy_ned
+    - sensor.sheriff_katie_sos_professor_pete
+    - sensor.sheriff_katie_sos_clerk_will
+    - sensor.sheriff_katie_sos_flim_flam
+    - sensor.sheriff_katie_sos_julius_wheezer
+    - sensor.sheriff_katie_sos_clerk_clara
+    - sensor.sheriff_katie_sos_soggy_bottom
+    - sensor.sheriff_katie_sos_nancy_gas
+    - sensor.sheriff_katie_sos_professor_guffaw
+    - sensor.sheriff_katie_sos_melody_wavers
+    - sensor.sheriff_katie_sos_franz_neckvein
+    - sensor.sheriff_katie_sos_clerk_ray
+    - sensor.sheriff_katie_sos_clerk_penny
+    - sensor.sheriff_katie_sos_madam_chuckle
+    - sensor.sheriff_katie_sos_sofie_squirt
+    - sensor.sheriff_katie_sos_sid_sonata
+    - sensor.sheriff_katie_sos_daffy_don
+- title: Remotes
+  path: remotes
+  cards:
+  - type: entities
+    title: Remotes
+    entities:
+    - sensor.sheriff_katie_pink_slips
+    - sensor.sheriff_katie_damage_remote_level_1
+    - sensor.sheriff_katie_damage_remote_level_2
+    - sensor.sheriff_katie_damage_remote_level_3
+    - sensor.sheriff_katie_healing_remote_level_1
+    - sensor.sheriff_katie_healing_remote_level_2
+    - sensor.sheriff_katie_healing_remote_level_3
+- title: Summons
+  path: summons
+  cards:
+  - type: entities
+    title: Summons
+    entities:
+    - sensor.sheriff_katie_summons_flunky
+    - sensor.sheriff_katie_summons_pencil_pusher
+    - sensor.sheriff_katie_summons_yesman
+    - sensor.sheriff_katie_summons_micro_manager
+    - sensor.sheriff_katie_summons_downsizer
+    - sensor.sheriff_katie_summons_head_hunter
+    - sensor.sheriff_katie_summons_corporate_raider
+    - sensor.sheriff_katie_summons_the_big_cheese
+    - sensor.sheriff_katie_summons_bottom_feeder
+    - sensor.sheriff_katie_summons_blood_sucker
+    - sensor.sheriff_katie_summons_double_talker
+    - sensor.sheriff_katie_summons_ambulance_chaser
+    - sensor.sheriff_katie_summons_back_stabber
+    - sensor.sheriff_katie_summons_spin_doctor
+    - sensor.sheriff_katie_summons_legal_eagle
+    - sensor.sheriff_katie_summons_big_wig
+    - sensor.sheriff_katie_summons_short_change
+    - sensor.sheriff_katie_summons_penny_pincher
+    - sensor.sheriff_katie_summons_tightwad
+    - sensor.sheriff_katie_summons_number_cruncher
+    - sensor.sheriff_katie_summons_money_bags
+    - sensor.sheriff_katie_summons_loan_shark
+    - sensor.sheriff_katie_summons_robber_baron
+    - sensor.sheriff_katie_summons_cold_caller
+    - sensor.sheriff_katie_summons_tele_marketer
+    - sensor.sheriff_katie_summons_name_dropper
+    - sensor.sheriff_katie_summons_glad_hander
+    - sensor.sheriff_katie_summons_two_face
+    - sensor.sheriff_katie_summons_the_mingler
+    - sensor.sheriff_katie_summons_mr_hollywood
+
